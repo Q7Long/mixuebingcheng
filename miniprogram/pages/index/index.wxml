@@ -1,8 +1,8 @@
 <view class="page">
-<!-- 如果 swiperList 里面没有数据不会渲染轮播图-->
+<!-- 1. 轮播图-->
  <view wx:if="{{swiperList.length}}" class="swiper-container">
  <!--3. 我们怎么知道图片切换去切换小圆圈的状态呢，这里有个bindchange事件 -->
-  <swiper bindchange="onSwiperChange">
+  <swiper bindchange="onSwiperChange" autoplay="true" interval="3000" duration="1000" circular="true">
    <!--1. 轮播里面包括图片，里面一个是轮播一个是轮播标识，里面一个是图片一个是跳转链接 -->
     <swiper-item wx:for="{{ swiperList }}" wx:key="index">
       <image bindtap="onSwiperTab" data-item="{{item}}" mode="aspectFill" src="{{ item.imgUri }}"></image>
@@ -12,5 +12,23 @@
   <!--2. 如果 current == index  会有一个 active 属性-->
   <view class="dot {{current !== index || 'active'}}" wx:for="{{ swiperList }}" wx:key="index"></view>
   </view>
+ </view>
+ <!--2. 会员/积分区域 -->
+ <view class="member-area">
+ <!-- 左侧会员区域 -->
+ <view class="vip-box">
+ <image src="../../assets/images/vip-pic.png"></image>
+ <view class="meta">
+ <view class="title">微雪花会员</view>
+ <progress-bar value="{{ 33 }}" width="320rpx"/>
+ <view class="tips">再升1级可享【升级礼包】等6项权益</view>
+ </view>
+
+ <!-- 右侧积分区域 -->
+ <view class="coin-box">
+ <image src="../../assets/images/me-coin.png"></image>
+ <view class="currency">51</view>
+ </view>
+ </view> 
  </view>
 </view>

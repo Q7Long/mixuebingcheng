@@ -1,0 +1,12 @@
+<!-- 经验条组件
+<view class="track" style="{{!trackColor ? 'background-color:' + trackColor + ';' : ''}} {{ width ? 'width:' + width + ';' : ''}}">
+  <view class="bar" style="{{ value > 0 ? 'width:' + value + '%;' : ''}} {{!color|| 'background-color:' + color + ';'}}">
+  </view>
+</view> -->
+
+<!-- 经验条组件 -->
+<!-- 如果正常情况下，这里判断就很麻烦，所以这里指定了两个属性 -->
+<view class="track" style="{{ trackStyle }}">
+  <view class="bar" style="{{ barStyle }}">
+  </view>
+</view>

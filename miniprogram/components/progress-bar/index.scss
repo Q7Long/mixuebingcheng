@@ -1,0 +1,15 @@
+/* components/progress-bar/index.wxss */
+.track{
+  // 进度条部分
+  background-color: #ebebeb;
+  height: 6rpx;
+  width: 100%;
+  border-radius: 3rpx;
+  // 进度条里面是竖装的，这里需要超出隐藏掉
+  overflow: hidden;
+}
+.bar{
+  background-color: #E60012;
+  height: 100%;
+  width: 0;
+}

@@ -1,6 +1,6 @@
 {
+  "component": true,
   "navigationStyle": "custom",
   "usingComponents": {
-    "progress-bar":"../../components/progress-bar/index"
   }
-} 
+}
