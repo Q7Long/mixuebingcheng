@@ -9,7 +9,6 @@
   "projectname": "ts-sass-demo",
   "setting": {
     "useCompilerPlugins": [
-      "typescript",
       "sass"
     ],
     "babelSetting": {
@@ -22,7 +21,7 @@
   "simulatorPluginLibVersion": {},
   "condition": {},
   "srcMiniprogramRoot": "miniprogram/",
-  "appid": "wx760b63f63e4a2fe6",
+  "appid": "wx71cda7a1628c05e3",
   "libVersion": "2.27.1",
   "editorSetting": {
     "tabIndent": "insertSpaces",

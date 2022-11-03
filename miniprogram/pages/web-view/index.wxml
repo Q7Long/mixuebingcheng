@@ -1,0 +1,1 @@
+<view wx:if="{{url}}" src="{{url}}"></view>
