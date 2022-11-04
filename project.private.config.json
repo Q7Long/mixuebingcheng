@@ -3,5 +3,19 @@
   "projectname": "mixuebingcheng",
   "setting": {
     "compileHotReLoad": true
-  }
+  },
+  "condition": {
+    "miniprogram": {
+      "list": [
+        {
+          "name": "登录页面",
+          "pathName": "pages/login/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        }
+      ]
+    }
+  },
+  "libVersion": "2.18.1"
 }

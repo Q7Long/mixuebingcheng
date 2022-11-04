@@ -25,7 +25,8 @@ Page({
       //   target:"http://baidu.com"
       // }
     ],
-    current:0
+    current:0,    // 轮播图小图标切换
+    memberInfo:null
   },
 
   //1. 当轮播图切换的时候，调用这个方法，给 current 重新赋值，改变切换按钮的样式
@@ -48,7 +49,12 @@ Page({
       url: `/pages/product/detail?id=${item.target}`,
     })
   },
-
+  // 登录按钮操作
+  gotoLogin(){
+    wx.navigateTo({
+      url: '/pages/login/index',
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -61,53 +67,15 @@ Page({
      })
    })
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {
-
+  onShow(){
+    // 去拿手机号数据
+    this.loadNumberInfo()
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage() {
-
+  loadNumberInfo(){
+   if(wx.getStorageSync('phoneNumber')){
+    this.setData({
+      memberInfo:wx.getStorageSync('phoneNumber')
+    })
+   }
   }
 })

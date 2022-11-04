@@ -1,3 +1,5 @@
+// 这里引入通用的颜色
+@import '../../style/theme.scss';
 .swiper-container{
   width: 100vw;
   height: 630rpx;
@@ -30,7 +32,7 @@
       margin-left: 4rpx;
       // 1s 过渡
       transition: all 1s;
-      &.active {
+      &:active {
         // 如果是被选中状态的话，那么这里就会从圆变成一个条状的切换样式
         width: 29rpx;
         opacity: 1;
@@ -53,8 +55,9 @@
   flex-direction: row;
   // 排布在盒子的两端
   justify-content: space-between;
+  align-items: center;
   // 使图标显示在中间位置
-  padding: 30rpx;
+  padding: 0 20rpx;
   // 这样防止盒子因为 padding 变大
   box-sizing: border-box;
   .vip-box{
@@ -76,25 +79,41 @@
       }
       .tips{
         margin-top: 14rpx;
-        color: #777777;
-        font-size: 23rpx;
+        // 这里修改一下颜色的值
+        // color:#777777
+        color: $gray-text-color;
+        font-size: 24rpx;
       }
     }
   }
   .coin-box{
     display: flex;
     flex-direction: column;
-    align-items: center;
-    margin-left: 20rpx;
     justify-content: center;
-    .image{
-      width: 140rpx;
+    margin-right: -23rpx;
+    image{
+      width: 130rpx;
       height: 70rpx;
     }
     .currency{
       color: #d32d25;
-      margin-right: 20rpx;
+      margin-left: 26rpx;
       font-weight: bold;
+    }
+  }
+  //登录按钮样式
+  .login-btn{
+    width: 150rpx;
+    height: 65rpx;
+    border-radius: 10rpx;
+    background-color: $primary-color;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25rpx;
+    &active{
+      opacity: 0.6;
     }
   }
 }

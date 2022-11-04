@@ -4,6 +4,7 @@
     "ignore": [],
     "include": []
   },
+  "cloudfunctionRoot": "cloud-functions/",
   "miniprogramRoot": "miniprogram/",
   "compileType": "miniprogram",
   "projectname": "ts-sass-demo",
