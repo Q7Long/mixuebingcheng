@@ -15,6 +15,11 @@
     "navigationBarTitleText": "蜜雪冰城",
     "navigationBarTextStyle": "black"
   },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于获取附近门店"
+    }
+  },
   "tabBar": {
     "color": "#797979",
     "selectedColor": "#E60012",

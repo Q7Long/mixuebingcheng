@@ -1,13 +1,36 @@
 <view class="page">
   <view class="header">
-  <!-- 可以设置数组和对象，对象有利于指定key  抽离切换栏组件-->
-   <tabs tabs="{{ [{value:'nearby',label:'附近门店'},{value:'recent',label:'常去门店'}] }}"></tabs>
-      <input type="text" class="search" placeholder="搜索门店"/>
+    <!-- 可以设置数组和对象，对象有利于指定key  抽离切换栏组件-->
+    <tabs tabs="{{ [{value:'nearby',label:'附近门店'},{value:'recent',label:'常去门店'}] }}"></tabs>
+    <input type="text" class="search" placeholder="搜索门店" />
   </view>
-  <!-- map 区域 -->
-  <view class="map">
-  </view>
-  <!--  -->
+  <!-- map 区域  从官方直接拿 longitude latitude经纬度 bindmarkertap点开时候的位置 -->
+  <map id="store-map" class="store-map" latitude="{{latitude}}" longitude="{{longitude}}" show-location markers="{{markers}}">
+    <image bindtap="gotoCurrentLocation" class="current-icon" src="../../assets/images/current.png"></image>
+  </map>
+  <!-- 收起地图文字信息  -->
   <view class="collapse-area">
+    <view class="collapse-tip">收起地图</view>
+    <image src="../../assets/images/up.png"></image>
   </view>
+  <!-- 店铺信息 -->
+  <scroll-view class="store-list" scroll-y>
+    <view class="store-box" wx:for="2" wx:key="*this">
+      <view class="info-area">
+        <view class="name">蜜雪冰城（潘水店）</view>
+        <view class="info">郑州市191号</view>
+        <view class="info">营业时间: 09:00 ~ 22:00 </view>
+        <view class="tag">营业中</view>
+      </view>
+      <view class="location-area">
+        <view class="distance">距离1.3km</view>
+        <view class="action-area">
+          <view class="location">
+            <image class="location" src="../../assets/images/location.jpg"></image>
+            <image class="phone" src="../../assets/images/phone.jpg"></image>
+          </view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
 </view>

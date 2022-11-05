@@ -1,66 +1,41 @@
 // pages/store/index.js
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    longitude:113.613347,
+    latitude:34.748349,
+    // 地图上的蜜雪冰城标记点，自定义 markers
+    markers:[
+      {id:1,title:'实际位置',latitude:34.748349,longitude:113.613347,iconPath:'../../assets/images/marker.png', 
+      width:'55rpx',height:'69rpx'}
+    ]
   },
+  //1. 在当前页面增加了一个成员变量 mapContext
+  mapContext:null,
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad(options) {
-
+    // 获取当前位置信息
+    wx.getLocation({
+      type: 'gcj02',
+      altitude: true, //高精度定位
+      success: (res)=> {
+        console.log(111);
+        const latitude = res.latitude
+        const longitude = res.longitude
+        this.setData({
+          latitude,
+          longitude
+        })
+      }
+     })
+    // 点击右下角小图标返回当前位置  
+    wx.createSelectorQuery().select('#store-map').context(res=>{
+      //2. 刚加载页面的时候我们进行一个对 mapContext 的获取
+      this.mapContext = res.context;
+    }).exec()
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage() {
-
+  //3. 点击回到中心点位置
+  gotoCurrentLocation(){
+    // 4. 任何一个位置只要点击就回到当前位置
+    this.mapContext.moveToLocation()
   }
 })
