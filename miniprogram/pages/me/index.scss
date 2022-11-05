@@ -1,1 +1,114 @@
 /* pages/me/index.wxss */
+@import '../../style/theme.scss';
+.page{
+  // 渐变色，需要配合 height width 使用
+  background: linear-gradient(to bottom,#fbe7e6,#f8f8f8);
+  // view height 可视窗高度
+  height: 100vh;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 30rpx;
+  padding-top: 170rpx;
+  .user-area{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .user-box{
+      display: flex;
+      align-items: center;
+      .avatar {
+        width: 120rpx;
+        height: 120rpx;
+      }
+      .name{
+        font-size: 28rpx;
+        margin-left: 24rpx;
+      }
+    }
+    .login-btn{
+      width: 150rpx;
+      height: 62rpx;
+      background-color: $primary-color;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 25rpx;
+      font-weight: bold;
+      &.active{
+        opacity: 0.6;
+      }
+    }
+  }
+  // 卡片区域
+  .card-container{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 26rpx;
+    .card{
+      width: 330rpx;
+      box-sizing: border-box;
+      padding: 23rpx;
+      border-radius: 15rpx;
+      display: flex;
+      margin-top: 20rpx;
+      background-color: #fff;
+      justify-content: space-between;
+      align-items: center;
+      .meta{
+        .count{
+          font-size: 24rpx;
+          font-weight: bold;
+        }
+        .name{
+          margin-top: 5rpx;
+          font-size: 24rpx;
+          color: $gray-text-color;
+        }
+      }
+      .icon{
+        width: 72rpx;
+        height: 72rpx;
+      }
+    }
+  }
+  // list区域
+  .list-items{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    margin-bottom: 26rpx;
+    .item{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 36rpx 30rpx;
+      background-color: #fff;
+      .content{
+        display: flex;
+        align-items: center;
+        .icon{
+          width: 40rpx;
+          height: 40rpx;
+          margin-right: 25rpx;
+        }
+        .label{
+          font-size: 30rpx;
+        }
+      }
+      .left-arrow{
+        width: 30rpx;
+        height: 30rpx;
+      }
+    }
+    &.app-download{
+    .tips{
+      margin-right: 10rpx;
+      font-size: 24rpx;
+      color: $gray-text-color;
+    } 
+    }
+  }
+}

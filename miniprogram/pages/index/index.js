@@ -33,6 +33,7 @@ Page({
   onSwiperChange(e){
     // 可以先进行解构，将里面的 current 拿出来
     const { current } = e.detail
+    // console.log(current);
     this.setData({
       current
     })
@@ -55,6 +56,28 @@ Page({
       url: '/pages/login/index',
     })
   },
+
+  // 点击点餐卡片跳转至菜单页
+  onMenuCardClick(){
+   if(wx.getStorageSync('phoneNumber')){
+    wx.switchTab({
+      url: '/pages/menu/index',
+    })
+   }else{
+    wx.showToast({
+      title: '请先登录',
+      image:'../../assets/images/home-selected.png',
+      mask:true,   //是否显示透明蒙层，防止触摸穿透，默认：false
+    })
+   }
+  },
+  // 点击最下面的去文章页面
+  onArticleClick(){
+    wx.navigateTo({
+      url: '/pages/web-view/index?url=http://www.zhangqilong.cn',
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */

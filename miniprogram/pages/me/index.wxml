@@ -1,2 +1,75 @@
 <!--pages/me/index.wxml-->
-<text>pages/me/index.wxml</text>
+<view class="page">
+  <!-- 用户区域 -->
+  <view class="user-area">
+    <view class="user-box">
+      <image class="avatar" src="{{imgUri}}"></image>
+      <!-- desensitiveMobile 是在computed中对电话脱敏后的数据 -->
+      <view class="name">{{ desensitiveMobile || '登录获得更多会员权益' }}</view>
+    </view>
+    <view wx:if="{{ !phoneNumber }}" class="login-btn" bindtap="login">授权登录</view>
+  </view>
+  <!-- 卡片区域 -->
+  <view  class="card-container">
+    <!-- one -->
+    <view class="card">
+      <view class="meta">
+        <view class="count">54</view>
+        <view class="name">雪王币</view>
+      </view>
+      <image class="icon" src="../../assets/images/me-coin.png"></image>
+    </view>
+    <!-- second -->
+    <view class="card">
+      <view class="meta">
+        <view class="count">54</view>
+        <view class="name">优惠券</view>
+      </view>
+      <image class="icon" src="../../assets/images/me-coupon.png"></image>
+    </view>
+  </view>
+  <!-- list区域 -->
+  <view class="list-items">
+    <view class="item">
+      <view class="content">
+        <image class="icon" src="../../assets/images/qr-code.png"></image>
+        <view class="label">兑换码</view>
+      </view>
+      <image class="left-arrow" src="../../assets/images/right.png"></image>
+    </view>
+    <!-- second -->
+    <view class="item">
+      <view class="content">
+        <image class="icon" src="../../assets/images/lock.png"></image>
+        <view class="label">隐私政策</view>
+      </view>
+      <image class="left-arrow" src="../../assets/images/right.png"></image>
+    </view>
+    <!-- third -->
+    <view class="item">
+      <view class="content">
+        <image class="icon" src="../../assets/images/paper.png"></image>
+        <view class="label">用户协议</view>
+      </view>
+      <image class="left-arrow" src="../../assets/images/right.png"></image>
+    </view>
+    <!-- forth -->
+    <view class="item">
+      <view class="content">
+        <image class="icon" src="../../assets/images/xuke.png"></image>
+        <view class="label">经营信息公示</view>
+      </view>
+      <image class="left-arrow" src="../../assets/images/right.png"></image>
+    </view>
+  </view>
+  <!-- fifth -->
+  <view class="list-items app-download">
+      <view class="item">
+      <view class="content">
+        <image class="icon" src="../../assets/images/app.png"></image>
+        <view class="label">蜜雪冰城APP</view>
+      </view>
+      <view class="tips">下载APP体验更佳</view>
+    </view>
+    </view>
+</view>

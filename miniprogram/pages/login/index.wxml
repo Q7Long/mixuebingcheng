@@ -5,5 +5,5 @@
   <view class="login-tip">授权绑定手机号 为您提供更好的服务</view>
   <!-- <button open-type="getPhoneNumber" class="login-btn"  bindgetphonenumber="login">一键登录</button> -->
   <button class="login-btn" bindtap="login">一键登录</button>
-  <view class="cancel" bindtap="">取消</view>
+  <view class="cancel" bindtap="" bindtap="cancel">取消</view>
 </view>
