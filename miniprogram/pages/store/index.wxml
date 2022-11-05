@@ -1,0 +1,13 @@
+<view class="page">
+  <view class="header">
+  <!-- 可以设置数组和对象，对象有利于指定key  抽离切换栏组件-->
+   <tabs tabs="{{ [{value:'nearby',label:'附近门店'},{value:'recent',label:'常去门店'}] }}"></tabs>
+      <input type="text" class="search" placeholder="搜索门店"/>
+  </view>
+  <!-- map 区域 -->
+  <view class="map">
+  </view>
+  <!--  -->
+  <view class="collapse-area">
+  </view>
+</view>

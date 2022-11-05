@@ -1,0 +1,5 @@
+<!--components/tabs/index.wxml-->
+<view class="tabs">
+      <view class="tab {{index === current ? 'active':''}}" bindtap="onTab" data-index="{{index}}" wx:for="{{tabs}}" wx:key="index">{{item.label}}</view>
+      <view class="line" style="{{ 'width: ' + linePositionWidth + 'px; left: ' + linePositionX + 'px'}}"></view>
+</view>  

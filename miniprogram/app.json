@@ -6,7 +6,8 @@
     "pages/me/index",
     "pages/web-view/index",
     "pages/product/detail",
-    "pages/login/index"
+    "pages/login/index",
+    "pages/store/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -25,7 +26,7 @@
         "selectedIconPath": "./assets/images/home-selected.png"
       },
       {
-        "pagePath": "pages/menu/index",
+        "pagePath": "pages/store/index",
         "text": "点餐",
         "iconPath": "./assets/images/menu.png",
         "selectedIconPath": "./assets/images/menu-selected.png"

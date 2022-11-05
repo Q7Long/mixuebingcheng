@@ -1,0 +1,20 @@
+.header{
+  display: flex;
+  padding:0 30rpx;
+  box-sizing: border-box;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  height: 109rpx;
+  .search{
+    width: 174rpx;
+    height: 58rpx;
+    background-color: #f5f5f5;
+    padding: 18rpx 26rpx;
+    border-radius: 29rpx;
+    box-sizing: border-box;
+    padding:0 26rpx;
+    font-size: 28rpx;
+    color: #d1d1d1;
+  }
+}

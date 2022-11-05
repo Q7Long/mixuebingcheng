@@ -1,2 +1,12 @@
-<!--pages/menu/index.wxml-->
-<text>pages/menu/index.wxml</text>
+<view class="page">
+  <view class="header">
+   <tabs></tabs>
+    <input type="text"/>
+  </view>
+  <!-- map 区域 -->
+  <view class="map">
+  </view>
+  <!--  -->
+  <view class="collapse-area">
+  </view>
+</view>
