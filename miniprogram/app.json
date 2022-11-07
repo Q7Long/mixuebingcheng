@@ -9,6 +9,12 @@
     "pages/login/index",
     "pages/store/index"
   ],
+  "plugins": {
+    "chooseLocation": {
+    "version": "1.0.9",
+    "provider": "wx76a9a06e5b4e693e"
+    }
+},
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",

@@ -2,20 +2,20 @@
   <view class="header">
     <!-- 可以设置数组和对象，对象有利于指定key  抽离切换栏组件-->
     <tabs tabs="{{ [{value:'nearby',label:'附近门店'},{value:'recent',label:'常去门店'}] }}"></tabs>
-    <input type="text" class="search" placeholder="搜索门店" />
+    <input bindtap="chooseLocation" type="text" class="search" placeholder="搜索门店" />
   </view>
   <!-- map 区域  从官方直接拿 longitude latitude经纬度 bindmarkertap点开时候的位置 -->
-  <map id="store-map" class="store-map" latitude="{{latitude}}" longitude="{{longitude}}" show-location markers="{{markers}}">
+  <map id="store-map" class="store-map" style="height: {{collapse ? '0':'520rpx'}};" latitude="{{latitude}}" longitude="{{longitude}}" show-location markers="{{markers}}" bindmarkertap="onMarkerTab">
     <image bindtap="gotoCurrentLocation" class="current-icon" src="../../assets/images/current.png"></image>
   </map>
   <!-- 收起地图文字信息  -->
-  <view class="collapse-area">
-    <view class="collapse-tip">收起地图</view>
-    <image src="../../assets/images/up.png"></image>
+  <view class="collapse-area" bindtap="collapse">
+    <view class="collapse-tip">{{collapse ? '展开地图':'收起地图'}}</view>
+    <image class="icon" src="{{ '../../assets/icons/arrow-'+(collapse ?'down':'up')+'.svg' }}"></image>
   </view>
   <!-- 店铺信息 -->
-  <scroll-view class="store-list" scroll-y>
-    <view class="store-box" wx:for="{{storeList}}" wx:key="index">
+  <scroll-view  class="store-list" scroll-y style="height: {{collapse ? '100%':'calc(100vh - 700rpx)'}} ;">
+    <view class="store-box" wx:for="{{storeList}}" wx:key="index" bindtap="popupStoreDetail" data-store="{{item}}">
       <view class="info-area">
         <view class="name">{{ item.name }}</view>
         <view class="info">{{item.address}}</view>
@@ -28,10 +28,39 @@
         <view class="action-area">
           <view class="location">
             <image class="location" bindtap="navigateLocation" data-location="{{item.location}}" src="../../assets/images/location.jpg"></image>
-            <image class="phone" bindtap="call" data-phone="{{item.phone}}"  src="../../assets/images/phone.jpg"></image>
+            <image class="phone" bindtap="call" data-phone="{{item.phone}}" src="../../assets/images/phone.jpg"></image>
           </view>
         </view>
       </view>
     </view>
+    <view class="empty" wx:if="{{storeList.length === 0}}">抱歉附近没有门店</view>
   </scroll-view>
+ 
+
+  <!-- 弹窗组件  round 圆角默认是true  star-->
+  <page-container wx:if="{{ currentStore }}" show="{{ storeDetailShow }}" round position="bottom" class="store-detail">
+    <!-- 公告区域 -->
+    <view class="notification">
+      <image class="icon" src="../../assets/icons/speaker.svg"></image>
+      <view class="info">我们的门店很多，千万不要写错哦~</view>
+    </view>
+    <view class="container">
+      <view class="header-area">
+      <view class="info">
+        <view class="title">{{ currentStore.name }}</view>
+        <view class="address">{{ currentStore.address }}</view>
+      </view>
+      <view class="distance">
+        距离<view class="number">{{ currentStore.distance }}km</view>
+      </view>
+    </view>
+
+    <!-- 地图 -->
+    <map id="store-detail" class="store-detail-map" latitude="{{ currentStore.location.latitude }}" longitude="{{ currentStore.location.longitude }}" show-location markers="{{ markers }}">
+    </map>
+    <!-- 按钮 -->
+    <button class="menu-btn">进入菜单</button>
+  </view>  
+  </page-container>
+  <!-- 弹窗组件 end-->
 </view>
