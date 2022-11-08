@@ -1,4 +1,5 @@
 // pages/login/index.js
+import userApi from '../../api/user'
 Page({
 
   /**
@@ -19,13 +20,22 @@ Page({
     //   }
     // }).then(res=>{
     //   // console.log(res);
-    //   // 根据手机号码判断是否登录
-    //   wx.setStorage("phoneNumber",res.result)
-    //   // 跳转回来
-    //   wx.switchTab({
-    //     url: this.data.goto,
+    // 判断是否是数据库中的字段
+    // const phoneNumber = res.result
+    // userApi.create({
+    //   phoneNumber
+    // }).then(response=>{
+    //   userApi.me().then(results=>{
+    //   wx.setStorageSync("phoneNumber",results.data[0])
+    //    //   // 跳转回来
+    //   wx.navigateBack({
+    //     delta: 0,
+    //   })
     //   })
     // })
+    //   // 根据手机号码判断是否登录
+
+   
     // 由于上面是个人用户，无法获取手机号，所以这里选择不去获取手机号，直接跳转页面
     wx.switchTab({
       url: this.data.goto,

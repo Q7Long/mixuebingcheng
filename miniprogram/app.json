@@ -7,7 +7,8 @@
     "pages/web-view/index",
     "pages/product/detail",
     "pages/login/index",
-    "pages/store/index"
+    "pages/store/index",
+    "pages/custom-page/index"
   ],
   "plugins": {
     "chooseLocation": {

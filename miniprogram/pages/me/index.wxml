@@ -38,7 +38,7 @@
       <image class="left-arrow" src="../../assets/images/right.png"></image>
     </view>
     <!-- second -->
-    <view class="item">
+    <view class="item" bindtap="gotoCustomPage" data-code="privacy">
       <view class="content">
         <image class="icon" src="../../assets/images/lock.png"></image>
         <view class="label">隐私政策</view>
@@ -46,7 +46,7 @@
       <image class="left-arrow" src="../../assets/images/right.png"></image>
     </view>
     <!-- third -->
-    <view class="item">
+    <view class="item" bindtap="gotoCustomPage" data-code="agreement"> 
       <view class="content">
         <image class="icon" src="../../assets/images/paper.png"></image>
         <view class="label">用户协议</view>
@@ -54,7 +54,7 @@
       <image class="left-arrow" src="../../assets/images/right.png"></image>
     </view>
     <!-- forth -->
-    <view class="item">
+    <view class="item" bindtap="gotoCustomPage" data-code="xuke">
       <view class="content">
         <image class="icon" src="../../assets/images/xuke.png"></image>
         <view class="label">经营信息公示</view>

@@ -1,0 +1,3 @@
+<rich-text class="custom-page" nodes="{{page.content}}">
+
+</rich-text>

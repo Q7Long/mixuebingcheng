@@ -38,5 +38,13 @@ Page({
         imgUri:'../../assets/images/vip-pic.png'
       })
     }
+  },
+  // 点击隐私政策去隐私政策页面
+  gotoCustomPage(e){
+    const {code} = e.currentTarget.dataset
+    wx.navigateTo({
+      // query传参
+      url: `/pages/custom-page/index?code=${code}`,
+    })
   }
 })

@@ -3,7 +3,8 @@
   "projectname": "mixuebingcheng",
   "setting": {
     "compileHotReLoad": true,
-    "urlCheck": false
+    "urlCheck": false,
+    "bigPackageSizeSupport": true
   },
   "condition": {
     "miniprogram": {
