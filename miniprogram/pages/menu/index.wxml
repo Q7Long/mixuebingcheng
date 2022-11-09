@@ -1,12 +1,24 @@
-<view class="page">
-  <view class="header">
-   <tabs></tabs>
-    <input type="text"/>
+<view class="header" style="margin-top:{{ headerStyle }}">
+  <image class="back-icon" bindtap="switchCurrentStore" src="../../assets/icons/arrow-left.svg"></image>
+  <view class="search-input">
+    <image class="search-icon" src="../../assets/icons/search.svg"></image>
+    <input placeholder="请输入商品名" />
   </view>
-  <!-- map 区域 -->
-  <view class="map">
+</view>
+<view class="menu-info">
+  <view class="store-info">
+    <view class="store-name" bindtap="switchCurrentStore">
+      {{store.name}}
+      <image src="../../assets/icons/arrow-right.svg"></image>
+    </view>
+    <view class="store-location">
+    <image class="location-icon" src="../../assets/icons/location.svg"></image>
+    <view class="distance-info">
+      距离您 <view style="color: red;margin-left: 4rpx;">{{store.distance}}km</view>
+    </view>
   </view>
-  <!--  -->
-  <view class="collapse-area">
+  </view>
+  <view class="trade-type">
+    自提
   </view>
 </view>

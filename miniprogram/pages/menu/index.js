@@ -1,66 +1,35 @@
 // pages/menu/index.ts
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    // 输入框距离顶部的高度计算，可以动态获取 Object wx.getMenuButtonBoundingClientRect()
+    headerStyle:'',     // 搜索框距离上面的高度
+    store:'',           // 点击进入菜单时候的门店信息
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad() {
-
+  onLoad(options) {
+    // 具体门店数据
+    let {store} = options
+    store = JSON.parse(store)
+        this.setData({
+          store
+        })
+    // 计算搜索框上面的高度 适配不同的设备
+    this.makeHeaderStyle()
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {
-
+  makeHeaderStyle(){
+    // https://developers.weixin.qq.com/miniprogram/dev/api/ui/menu/wx.getMenuButtonBoundingClientRect.html
+    // 距离上面的高度是有两个部分组成的 第一部分是距离上面的高度 + 电池区域的高度
+    const {top, bottom,height} = wx.getMenuButtonBoundingClientRect()
+    const menuButtonCenterPoint = (top + height/2)
+    //  search-input 的一半是32rpx 这样设置可以在所有记性都对齐到中间
+    const headerStyle = 'margin-top:calc( '+ menuButtonCenterPoint +'px-32rpx);'
+    this.setData({
+      headerStyle
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage() {
-
+  // 回到门店列表界面
+  switchCurrentStore(){
+    wx.navigateBack({
+      delta:0
+    })
   }
 })

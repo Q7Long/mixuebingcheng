@@ -1,5 +1,4 @@
 import swiper from "../../api/swiper"
-
 // pages/index/index.ts
 Page({
 

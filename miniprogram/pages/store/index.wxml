@@ -59,7 +59,7 @@
     <map id="store-detail" class="store-detail-map" latitude="{{ currentStore.location.latitude }}" longitude="{{ currentStore.location.longitude }}" show-location markers="{{ markers }}">
     </map>
     <!-- 按钮 -->
-    <button class="menu-btn">进入菜单</button>
+    <button class="menu-btn" bindtap="gotoMenu" data-store="{{currentStore}}">进入菜单</button>
   </view>  
   </page-container>
   <!-- 弹窗组件 end-->

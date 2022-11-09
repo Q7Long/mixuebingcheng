@@ -10,8 +10,8 @@ const list = (longitude,latitude) => {
       geometry: db.Geo.Point(longitude,latitude),
       // 最小距离可选
       minDistance: 0,
-      // 最大距离，5公里内数据都可以拿到，这里就可以修改数据去获取多远范围内的数据
-      maxDistance: 5000,
+      // 最大距离，10公里内数据都可以拿到，这里就可以修改数据去获取多远范围内的数据
+      maxDistance: 10000,
     })
   }).limit(10).get()
 }

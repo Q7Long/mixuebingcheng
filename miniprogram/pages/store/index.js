@@ -8,7 +8,6 @@ import storeApi from '../../api/store';
 const chooseLocation = requirePlugin('chooseLocation');
 Page({
   //12. 引入
-  behaviors: [computedBehavior],
   data: { 
     longitude:113.554637,
     latitude:34.818552,
@@ -236,6 +235,7 @@ Page({
       // 页面卸载时设置插件选点数据为null，防止再次进入页面，geLocation返回的是上次选点结果
       chooseLocation.setLocation(null);
   },
+
   // 23. 点击地图上的marker 显示对应店铺的信息
   onMarkerTab(e){
     const { markerId } = e.detail
@@ -246,6 +246,18 @@ Page({
     this.setData({
       currentStore:store,
       storeDetailShow:true
+    })
+  },
+
+  //24. 进入点餐页面
+  gotoMenu(e){
+    const store = JSON.stringify(e.currentTarget.dataset.store)
+    wx.navigateTo({
+      url: '/pages/menu/index?store=' + store ,
+    })
+    // 并且将弹窗关闭，避免一会退出的时候还显示弹窗
+    this.setData({
+      storeDetailShow:false
     })
   }
 })
