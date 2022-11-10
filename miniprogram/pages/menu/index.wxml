@@ -24,24 +24,25 @@
 </view>
 <!-- 侧边栏部分和内容区域 -->
 <view class="menu">
-  <!-- 边侧栏组件 -->
-  <siderbar style="width: 200rpx;height: 200rpx;"></siderbar>
+  <!-- 边侧栏组件 5.请求下来的数据传入到组件中 -->
+  <siderbar list="{{ goodsList }}"></siderbar>
   <scroll-view class="menu-list" scroll-y show-scrollbar="{{ false }}" enhanced>
     <force-swiper swiperList="{{ swiperList }}"></force-swiper>
     <view class="list">
-      <!-- 商品区域 -->
-      <view class="section">
+      <!-- 商品区域 8.有多少个商品渲染多少个view  wx:for-item="goodsCategory" 指定一下名字就可以将item替换成goodsCategory-->
+      <view class="section" wx:for="{{ goodsList }}" wx:for-item="goodsCategory" wx:key="index">
         <view class="section-header">
-          双旋冰淇淋
+          {{ goodsCategory.name }}
         </view>
         <view class="section-list">
-          <view class="item">
-            <image src="../../assets/images/product-image.png"></image>
+        <!-- 9.这里遍历的是 goodsCategory里面的 goods 并且渲染数据，因为这个数组嵌套了两层-->
+          <view class="item" wx:for="{{ goodsCategory.goodsList }}" wx:for-item="goods" wx:key="index">
+            <image src="{{ goods.cover }}"></image>
             <!-- 商品信息 -->
             <view class="info">
-              <view class="name">摩卡摇摇奶昔</view>
-              <view class="description">咖啡遇到冰淇淋，清爽更提神</view>
-              <view class="price">￥6</view>
+              <view class="name">{{goods.name}}</view>
+              <view class="description">{{ goods.description }}</view>
+              <view class="price">{{ goods.price }}</view>
             </view>
             <view class="add-icon">
               <image src="../../assets/icons/plus.svg"></image>

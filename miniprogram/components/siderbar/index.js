@@ -1,11 +1,10 @@
 // components/siderbar/index.js
 Component({
+  // 6. 接收传入的数据
   properties: {
     list:{
       type:Array,
-      value:[
-        1,2,3,4,5
-      ]
+      value:[]
     }
   },
   data: {

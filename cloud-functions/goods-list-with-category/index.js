@@ -6,6 +6,7 @@ cloud.init()
 // 云函数入口函数
 exports.main = async (event, context) => {
   const db = cloud.database()
+  // 云函数根据goods_category 聚合了一下goods
   const result = await db.collection('goods_category').aggregate()
     .lookup({
       from: 'goods',

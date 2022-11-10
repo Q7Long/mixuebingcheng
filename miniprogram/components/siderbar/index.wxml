@@ -2,8 +2,9 @@
 <!-- 因为是带滚动效果的所以是 scroll-view  scroll-y 上下滚动，但是使用之前必须给一个高度，否则不会生效   show-scrollbar="{{false}}" 配合 enhanced 使用没有滚动条效果 -->
 <scroll-view class="sidebar" scroll-y show-scrollbar="{{false}}" enhanced>
   <view class="sidebar-item {{index == current ? 'active':''}}" wx:for="{{list}}" wx:key="index" bindtap="switch" data-current="{{ index }}">
-  <image class="item-icon" src="../../assets/images/menu-icon.png"></image>
-  <view class="item-label">双旋冰淇淋</view>
+  <!-- 7. 将侧边栏商品名字和侧边栏图标渲染到页面上  item.icon item.name-->
+  <image class="item-icon" src="{{ item.icon }}"></image>
+  <view class="item-label">{{ item.name }}</view>
   <!-- 选中之后左侧的红线 -->
     <view wx:if="{{index == current}}" class="left-line"></view>
   </view>
