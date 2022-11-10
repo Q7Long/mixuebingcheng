@@ -1,0 +1,15 @@
+
+<view wx:if="{{swiperList.length}}" class="swiper-container" style="{{style}}">
+    <!--我们怎么知道图片切换去切换小圆圈的状态呢，这里有个bindchange事件 -->
+    <swiper bindchange="onSwiperChange" autoplay="true" interval="3000" duration="1000" circular="true">
+      <!--轮播里面包括图片，里面一个是轮播一个是轮播标识，里面一个是图片一个是跳转链接 -->
+      <swiper-item wx:for="{{ swiperList }}" wx:key="index">
+        <image bindtap="onSwiperTab" data-item="{{item}}" src="{{ item.imgUri }}"></image>
+      </swiper-item>
+    </swiper>
+    <!-- 将dots小点点居中 8是一个小圈的宽度，21是边长之后的29宽度-8之后的结果-->
+    <view class="dots" style="left:calc(50% - {{(swiperList.length * 8 +21)/2}}rpx);{{ dotsStyle }}">
+      <!--如果 current == index  会有一个 active 属性-->
+      <view class="dot {{current !== index || 'active'}}" wx:for="{{ swiperList }}" wx:key="index"></view>
+    </view>
+  </view>

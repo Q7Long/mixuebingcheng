@@ -1,19 +1,17 @@
-/* pages/menu/index.wxss */
 @import '../../style/theme.scss';
-.header{
-  margin-top: 100rpx;
+
+
+.header {
+  padding: 0 30rpx;
   display: flex;
-  padding:0 30rpx;
-  box-sizing: border-box;
-  width: 100%;
   align-items: center;
   margin-bottom: 34rpx;
-  .back-icon{
+  .back-icon {
     width: 18rpx;
     height: 32rpx;
     margin-right: 30rpx;
   }
-  .search-input{
+  .search-input {
     display: flex;
     align-items: center;
     background-color: #f1f1f2;
@@ -22,12 +20,12 @@
     border-radius: 10rpx;
     padding: 0 18rpx;
     box-sizing: border-box;
-    .search-icon{
+    .search-icon {
       width: 50rpx;
       height: 50rpx;
       margin-right: 10rpx;
     }
-    input{
+    input {
       font-size: 24rpx;
       line-height: 24rpx;
       height: 24rpx;
@@ -37,50 +35,128 @@
   }
 }
 
-// 第二部分 menu-info
-.menu-info{
+.menu-info {
+  padding: 0 30rpx;
   display: flex;
   justify-content: space-between;
-  padding: 0 30rpx;
-  align-items: center;
-  .store-info{
+
+  .store-info {
     margin-top: 4rpx;
-    .store-name{
+    .store-name {
       display: flex;
       align-items: center;
       font-size: 32rpx;
       font-weight: 500;
       margin-bottom: 10rpx;
-      image{
+      image {
         margin-left: 8rpx;
         width: 16rpx;
         height: 28rpx;
       }
     }
-    .store-location{
+    .store-location {
       display: flex;
       align-items: center;
-      .location-icon{
+      .location-icon {
         width: 22rpx;
         height: 22rpx;
         margin-right: 4rpx;
       }
-      .distance-info{
+      .distance-info {
         color: #a6a6a6;
         font-size: 22rpx;
         display: flex;
       }
     }
   }
-  .trade-type{
+  .trade-type {
     width: 102rpx;
     height: 50rpx;
-    border-radius: 10rpx;
     background-color: $primary-color;
+    border-radius: 8px;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 24rpx;
     color: #fff;
+    font-size: 24rpx;
+  }
+}
+
+.menu{
+  margin-top: 38rpx;
+  // grid布局
+  display: grid;
+  // 左侧侧边栏宽度是160rpx 1fr 把其余部分全部占满
+  grid-template-columns: 193rpx 1fr;
+  // 两个轨道之间的间隔
+  gap:20rpx;
+  // 给右侧内容距离屏幕间隔32rpx
+  padding-right: 32rpx; 
+  .menu-list{
+    // 菜单栏右侧的高度，配合外面的 scorll-view 可以有滚动效果 
+    height: 1148rpx;
+    .list{
+      margin-top: 44rpx;
+      .section{
+        margin-bottom: 42rpx;
+        .section-header{
+          font-size: 22rpx;
+          font-weight: 700;
+          margin-bottom: 26rpx;
+        }
+        .section-list{
+          .item{
+            margin-bottom: 48rpx;
+            display: flex;
+            &:last-child{
+              margin-bottom: 0;
+            }
+            image{
+              width: 158rpx;
+              height: 158rpx;
+              margin-right: 22rpx;
+              // 防止图片压缩
+              flex-shrink: 0;
+            }
+            .info{
+              display: flex;
+              flex-direction: column;
+              position: relative;
+              flex-grow: 1;
+              .name{
+                font-size: 28rpx;
+                font-weight: 700;
+              }
+              .description{
+                font-size: 22rpx;
+                color:$gray-text-color;
+              }
+              .price{
+                position:absolute;
+                bottom: 0;
+                color: $primary-color;
+                font-size: 23rpx;
+              }
+            }
+            .add-icon{
+              width: 46rpx;
+              height: 46rpx;
+              background-color: $primary-color;
+              border-radius: 23rpx;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              // 可以将元素放在最底部
+              align-self: flex-end;
+              image{
+                width: 20rpx;
+                height: 20rpx;
+                margin: 0;
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }

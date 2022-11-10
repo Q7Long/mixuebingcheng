@@ -24,18 +24,8 @@ Page({
       //   target:"http://baidu.com"
       // }
     ],
-    current:0,    // 轮播图小图标切换
+    // current:0,    // 轮播图小图标切换   //1. 放入到组件中
     memberInfo:null
-  },
-
-  //1. 当轮播图切换的时候，调用这个方法，给 current 重新赋值，改变切换按钮的样式
-  onSwiperChange(e){
-    // 可以先进行解构，将里面的 current 拿出来
-    const { current } = e.detail
-    // console.log(current);
-    this.setData({
-      current
-    })
   },
   // 2. 当手指点图片的时候跳转页面
   onSwiperTab(e){

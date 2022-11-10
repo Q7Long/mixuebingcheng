@@ -12,13 +12,43 @@
       <image src="../../assets/icons/arrow-right.svg"></image>
     </view>
     <view class="store-location">
-    <image class="location-icon" src="../../assets/icons/location.svg"></image>
-    <view class="distance-info">
-      距离您 <view style="color: red;margin-left: 4rpx;">{{store.distance}}km</view>
+      <image class="location-icon" src="../../assets/icons/location.svg"></image>
+      <view class="distance-info">
+        距离您 <view style="color: red;margin-left: 4rpx;">{{store.distance}}km</view>
+      </view>
     </view>
-  </view>
   </view>
   <view class="trade-type">
     自提
   </view>
+</view>
+<!-- 侧边栏部分和内容区域 -->
+<view class="menu">
+  <!-- 边侧栏组件 -->
+  <siderbar style="width: 200rpx;height: 200rpx;"></siderbar>
+  <scroll-view class="menu-list" scroll-y show-scrollbar="{{ false }}" enhanced>
+    <force-swiper swiperList="{{ swiperList }}"></force-swiper>
+    <view class="list">
+      <!-- 商品区域 -->
+      <view class="section">
+        <view class="section-header">
+          双旋冰淇淋
+        </view>
+        <view class="section-list">
+          <view class="item">
+            <image src="../../assets/images/product-image.png"></image>
+            <!-- 商品信息 -->
+            <view class="info">
+              <view class="name">摩卡摇摇奶昔</view>
+              <view class="description">咖啡遇到冰淇淋，清爽更提神</view>
+              <view class="price">￥6</view>
+            </view>
+            <view class="add-icon">
+              <image src="../../assets/icons/plus.svg"></image>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
 </view>

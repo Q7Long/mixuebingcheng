@@ -1,6 +1,8 @@
 {
   "usingComponents": {
-    "tabs":"../../components/tabs"
+    "tabs":"../../components/tabs",
+    "siderbar":"../../components/siderbar/index",
+    "force-swiper":"../../components/force-swiper/index"
   },
   "navigationStyle": "custom"
 }

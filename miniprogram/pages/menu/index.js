@@ -1,9 +1,11 @@
 // pages/menu/index.ts
+import swiperApi from '../../api/swiper';
 Page({
   data: {
     // 输入框距离顶部的高度计算，可以动态获取 Object wx.getMenuButtonBoundingClientRect()
     headerStyle:'',     // 搜索框距离上面的高度
     store:'',           // 点击进入菜单时候的门店信息
+    swiperList:[],       //
   },
   onLoad(options) {
     // 具体门店数据
@@ -14,6 +16,8 @@ Page({
         })
     // 计算搜索框上面的高度 适配不同的设备
     this.makeHeaderStyle()
+    // 调用获取轮播图方法
+    this.fetchSwiperList()
   },
   makeHeaderStyle(){
     // https://developers.weixin.qq.com/miniprogram/dev/api/ui/menu/wx.getMenuButtonBoundingClientRect.html
@@ -31,5 +35,14 @@ Page({
     wx.navigateBack({
       delta:0
     })
+  },
+  // 获取轮播图图片方法
+  fetchSwiperList(){
+    // 在这里获取图片，我们通过在 api 里面封装了API，获取云开发中的数据
+    swiperApi.list().then(res=>{
+     this.setData({
+       swiperList:res.data
+     })
+   })
   }
 })
