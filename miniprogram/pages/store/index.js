@@ -8,6 +8,7 @@ import storeApi from '../../api/store';
 const chooseLocation = requirePlugin('chooseLocation');
 Page({
   //12. 引入
+  behaviors: [computedBehavior],
   data: { 
     longitude:113.554637,
     latitude:34.818552,
@@ -35,6 +36,7 @@ Page({
       // console.log(data.storeList);
     // 注意： computed 函数中不能访问 this ，只有 data 对象可供访问
    return data.storeList.map((item,index)=>{
+    //  console.log(item);
       return {
         // 这个 id 需要 Number 类型
         id: index + 1,
@@ -54,13 +56,11 @@ Page({
   // 2. 定义全局 mapSdk
   mapSdk:null,
 
- async onLoad(options) {
+ onLoad(options) {
     // 调用封装的获取位置信息方法
     this.loadCurrentLocation()  
     // 作用从当前位置获取context，并且赋值到成员变量mapContext中
     this.initMapContext()
-    // 获取storeList的方法，在拿到位置数据信息之后再执行，或者将这个方法放进loadCurrentLocation方法里面
-    await this.fetchStoreList()
     //3. sdk的方法
     this.initMapSdk();
   },
@@ -88,6 +88,8 @@ Page({
         })
       }
     })
+    // 获取storeList的方法，在拿到位置数据信息之后再执行，或者将这个方法放进loadCurrentLocation方法里面
+    this.fetchStoreList()
   },
 
   // 封装加载 mapContext的方法

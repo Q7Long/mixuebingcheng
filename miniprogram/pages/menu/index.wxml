@@ -24,32 +24,15 @@
 </view>
 <!-- 侧边栏部分和内容区域 -->
 <view class="menu">
-  <!-- 边侧栏组件 5.请求下来的数据传入到组件中 -->
-  <siderbar list="{{ goodsList }}"></siderbar>
-  <scroll-view class="menu-list" scroll-y show-scrollbar="{{ false }}" enhanced>
+  <!-- 边侧栏组件 5.请求下来的数据传入到组件中 012.这里对代码进行改进 添加 current="{{ sidebarCurrent}}" 013.在js文件中定义 sidebarCurrent-->
+  <siderbar goodsList="{{ goodsList }}"bind:on-change="onSideBarChange" defaultCurrent="{{ sidebarCurrent}}"></siderbar>
+  <!-- 引入goods-list组件引入，并且将需要的数据传入，抽离组件不会很臃肿 -->
+  <!-- 06. 实现种类切换，传给子组件 current，是选中侧边栏部分的index 
+  011. bind:on-change="onGoodsListChange"添加一个新的事件 -->
+  <gooods-list goodsList="{{ goodsList }}" current="{{currentCategoryIndex}}" bind:on-change="onGoodsListChange">
+  <!-- 使用插槽包裹轮播图 -->
+  <view slot="before">
     <force-swiper swiperList="{{ swiperList }}"></force-swiper>
-    <view class="list">
-      <!-- 商品区域 8.有多少个商品渲染多少个view  wx:for-item="goodsCategory" 指定一下名字就可以将item替换成goodsCategory-->
-      <view class="section" wx:for="{{ goodsList }}" wx:for-item="goodsCategory" wx:key="index">
-        <view class="section-header">
-          {{ goodsCategory.name }}
-        </view>
-        <view class="section-list">
-        <!-- 9.这里遍历的是 goodsCategory里面的 goods 并且渲染数据，因为这个数组嵌套了两层-->
-          <view class="item" wx:for="{{ goodsCategory.goodsList }}" wx:for-item="goods" wx:key="index">
-            <image src="{{ goods.cover }}"></image>
-            <!-- 商品信息 -->
-            <view class="info">
-              <view class="name">{{goods.name}}</view>
-              <view class="description">{{ goods.description }}</view>
-              <view class="price">{{ goods.price }}</view>
-            </view>
-            <view class="add-icon">
-              <image src="../../assets/icons/plus.svg"></image>
-            </view>
-          </view>
-        </view>
-      </view>
-    </view>
-  </scroll-view>
+  </view>
+  </gooods-list>
 </view>

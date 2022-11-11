@@ -1,0 +1,78 @@
+<!-- 轮播图部分组件作为一个插槽放进页面中，goods-list则抽离出去成为一个组件 -->
+<!-- 02. scroll-into-view="section-{{current}}"   scrollInto 需要传入，在js中接收  bindscroll="onScroll" 为了实现，右侧的分类到达顶部之后吸顶效果-->
+<scroll-view id="menu-list" scroll-into-view="section-{{current}}" class="menu-list"  bindscroll="onScroll" scroll-y show-scrollbar="{{ false }}" enhanced>
+<!-- 将轮播图部分作为一个插槽，但是需要在js中进行配置才能使用-->
+<slot name="before"></slot>
+<view class="list">
+  <!-- 商品区域 8.有多少个商品渲染多少个view  wx:for-item="goodsCategory" 指定一下名字就可以将item改名成goodsCategory-->
+  <!--实现点击左侧分类跳到相关区域 01. id="section-{{index}}"  data-index="{{ index }}"是为了做 fixed 吸顶的效果-->
+  <view  wx:for="{{ goodsList }}" wx:for-item="goodsCategory" wx:key="index" class="section" id="section-{{index}}" data-index="{{ index }}" >
+    <view class="section-header">
+      {{ goodsCategory.name }}
+    </view>
+    <view class="section-list">
+    <!-- 9.这里遍历的是 goodsCategory里面的 goods 并且渲染数据，因为这个数组嵌套了两层-->
+      <view class="item" wx:for="{{ goodsCategory.goodsList }}" wx:for-item="goods" wx:key="index">
+        <image src="{{ goods.cover }}"></image>
+        <!-- 商品信息 -->
+        <view class="info">
+          <view class="name">{{goods.name}}</view>
+          <view class="description">{{ goods.description }}</view>
+          <view class="price">{{ goods.price }}</view>
+        </view>
+        <view class="add-icon">
+          <image src="../../assets/icons/plus.svg"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<!-- 第二个重复 重复部分仅仅是为了测试点击不同分类的切换效果和滚动之后重新赋值sidebar-->
+<view class="list">
+  <!-- 商品区域 8.有多少个商品渲染多少个view  wx:for-item="goodsCategory" 指定一下名字就可以将item替换成goodsCategory-->
+  <view class="section" wx:for="{{ goodsList }}" wx:for-item="goodsCategory" wx:key="index">
+    <view class="section-header">
+      {{ goodsCategory.name }}
+    </view>
+    <view class="section-list">
+    <!-- 9.这里遍历的是 goodsCategory里面的 goods 并且渲染数据，因为这个数组嵌套了两层-->
+      <view class="item" wx:for="{{ goodsCategory.goodsList }}" wx:for-item="goods" wx:key="index">
+        <image src="{{ goods.cover }}"></image>
+        <!-- 商品信息 -->
+        <view class="info">
+          <view class="name">{{goods.name}}</view>
+          <view class="description">{{ goods.description }}</view>
+          <view class="price">{{ goods.price }}</view>
+        </view>
+        <view class="add-icon">
+          <image src="../../assets/icons/plus.svg"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<!-- 第三个重复 -->
+<view class="list">
+  <!-- 商品区域 8.有多少个商品渲染多少个view  wx:for-item="goodsCategory" 指定一下名字就可以将item替换成goodsCategory-->
+  <view class="section" wx:for="{{ goodsList }}" wx:for-item="goodsCategory" wx:key="index">
+    <view class="section-header">
+      {{ goodsCategory.name }}
+    </view>
+    <view class="section-list">
+    <!-- 9.这里遍历的是 goodsCategory里面的 goods 并且渲染数据，因为这个数组嵌套了两层-->
+      <view class="item" wx:for="{{ goodsCategory.goodsList }}" wx:for-item="goods" wx:key="index">
+        <image src="{{ goods.cover }}"></image>
+        <!-- 商品信息 -->
+        <view class="info">
+          <view class="name">{{goods.name}}</view>
+          <view class="description">{{ goods.description }}</view>
+          <view class="price">{{ goods.price }}</view>
+        </view>
+        <view class="add-icon">
+          <image src="../../assets/icons/plus.svg"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+</scroll-view>

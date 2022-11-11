@@ -2,7 +2,8 @@
   "usingComponents": {
     "tabs":"../../components/tabs",
     "siderbar":"../../components/siderbar/index",
-    "force-swiper":"../../components/force-swiper/index"
+    "force-swiper":"../../components/force-swiper/index",
+    "gooods-list":"../../components/goods-list/index"
   },
   "navigationStyle": "custom"
 }

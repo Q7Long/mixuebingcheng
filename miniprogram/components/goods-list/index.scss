@@ -1,0 +1,71 @@
+/* components/goods-list/index.wxss */
+@import '../../style//theme.scss';
+.menu-list{
+  // 菜单栏右侧的高度，配合外面的 scorll-view 可以有滚动效果 
+  height: 1148rpx;
+  .list{
+    margin-top: 44rpx;
+    .section{
+      margin-bottom: 42rpx;
+      .section-header{
+        font-size: 22rpx;
+        font-weight: 700;
+        height: 50rpx;
+        background-color: #fff;
+        width: 100%;
+      }
+      .section-list{
+        .item{
+          margin-bottom: 48rpx;
+          display: flex;
+          &:last-child{
+            margin-bottom: 0;
+          }
+          image{
+            width: 158rpx;
+            height: 158rpx;
+            margin-right: 22rpx;
+            // 防止图片压缩
+            flex-shrink: 0;
+          }
+          .info{
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            flex-grow: 1;
+            .name{
+              font-size: 28rpx;
+              font-weight: 700;
+            }
+            .description{
+              font-size: 22rpx;
+              color:$gray-text-color;
+            }
+            .price{
+              position:absolute;
+              bottom: 0;
+              color: $primary-color;
+              font-size: 23rpx;
+            }
+          }
+          .add-icon{
+            width: 46rpx;
+            height: 46rpx;
+            background-color: $primary-color;
+            border-radius: 23rpx;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            // 可以将元素放在最底部
+            align-self: flex-end;
+            image{
+              width: 20rpx;
+              height: 20rpx;
+              margin: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}

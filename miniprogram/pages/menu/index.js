@@ -11,6 +11,8 @@ Page({
     store:'',           // 点击进入菜单时候的门店信息
     swiperList:[],       //轮播图页面的图片
     goodsList:[],       // 商品列表图片
+    currentCategoryIndex:0,   //05. 用于传入子组件中确定是哪个种类的数据，子组件中对应接收的是 current
+    sidebarCurrent:0,   //013. 在这里定义一个sidebarCurrent 在siderbar/index.js中接收一个current来切换侧边栏的状态，以及实现下面的onGoodsListChange方法
   },
   onLoad(options) {
     // 具体门店数据
@@ -66,6 +68,21 @@ Page({
     // 商品分类接口
     goodsCategoryApi.list().then(res=>{
      
+    })
+  },
+  //04. 切换菜单栏
+  onSideBarChange(e){
+    // console.log(e);
+    // 04. 获取值传入到子组件中 current，用于切换种类
+    this.setData({
+      //  当sidebar切换时候的index
+      currentCategoryIndex:e.detail.index
+    })
+  },
+  //013.实现onGoodsListChange方法
+  onGoodsListChange(e){
+    this.setData({
+      sidebarCurrent:e.detail.index
     })
   }
 })
